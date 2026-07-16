@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" role="img" aria-label="Sample flat label illustration">
+  <rect width="1200" height="1200" fill="#f7f6f1"/>
+  <rect x="180" y="150" width="840" height="900" rx="44" fill="#111111"/>
+  <rect x="390" y="250" width="420" height="700" rx="40" fill="#9ee7d7"/>
+  <circle cx="520" cy="470" r="132" fill="#ff7aa2"/>
+  <circle cx="690" cy="560" r="118" fill="#ffc46b"/>
+  <circle cx="560" cy="680" r="94" fill="#f7f6f1"/>
+  <rect x="465" y="820" width="270" height="34" rx="17" fill="#111111"/>
+  <rect x="520" y="875" width="160" height="22" rx="11" fill="#111111" opacity=".58"/>
+</svg>

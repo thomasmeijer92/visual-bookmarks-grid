@@ -1,25 +1,15 @@
 # Product Requirements: Search, Enrichment, Review, Boards, and Quality
 
-Status: Implemented and merged in `public-remix-starter`
+Status: Implemented in this public starter snapshot
 
 Target: Visual Bookmarks Grid public starter
 
 ## Implementation Record
 
-The requirements below are retained as historical design intent. The five bets
-were delivered and merged in the public-remix-starter repository as follows:
-
-| Bet | Delivery PR | Merge commit |
-| --- | --- | --- |
-| Search | #16 | `f92972b` |
-| Unified index | #17 | `019f606` |
-| Metadata review | #18 | `bf657df` |
-| Boards | #19 | `152f8aa` |
-| Browser/extension quality gate | #20 | `a63e383` |
-
-The roadmap PRD itself was merged as PR #15, commit `a4e8fdd`. These are
-public-remix-starter delivery records; they document merged repository work, not hosted
-deployment or changes to private local data.
+The requirements below record the five V1 bets included in this snapshot. They
+remain in their original directive form so the implementation decisions stay
+traceable. Read them as the plan used to build the shipped starter, not as current
+instructions or a record of hosted deployment.
 
 ## 1. Executive Summary
 
@@ -1505,8 +1495,8 @@ use pixel-perfect snapshot approval.
 - Save a local fixture page through the popup and verify both the success state and
   temporary server record.
 - Exercise the image context-menu handler against a local fixture image. If native
-  menu automation is unavailable, use a fixture event harness around the exported
-  handler and retain one documented manual native-menu check.
+  menu automation is unavailable, send fixture events to the exported handler and
+  retain one documented manual native-menu check.
 - A broken worker or shared-module import must fail the suite.
 
 ### CI and Acceptance Criteria
@@ -1535,7 +1525,8 @@ use pixel-perfect snapshot approval.
   system, broad browser matrix, or flaky retry-as-success policy.
 - Native context-menu automation alone cannot block the quality gate. The real
   unpacked popup and service worker remain mandatory; only the menu invocation may
-  fall back to the handler harness plus a documented manual check.
+  fall back to calling the exported handler with fixture events plus a documented
+  manual check.
 
 ## 10. Delivery Sequence and PR Boundaries
 

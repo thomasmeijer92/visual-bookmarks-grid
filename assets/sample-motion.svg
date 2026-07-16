@@ -1,11 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1000" role="img" aria-label="Sample motion interaction storyboard">
+  <defs>
+    <radialGradient id="blue-sphere" cx="32%" cy="28%" r="72%">
+      <stop offset="0" stop-color="#d8e5ff"/>
+      <stop offset="0.45" stop-color="#7aa8ff"/>
+      <stop offset="1" stop-color="#315da8"/>
+    </radialGradient>
+    <radialGradient id="mint-sphere" cx="32%" cy="28%" r="72%">
+      <stop offset="0" stop-color="#e0fff7"/>
+      <stop offset="0.45" stop-color="#9ee7d7"/>
+      <stop offset="1" stop-color="#3d8c7f"/>
+    </radialGradient>
+    <radialGradient id="pink-sphere" cx="32%" cy="28%" r="72%">
+      <stop offset="0" stop-color="#ffd7e3"/>
+      <stop offset="0.45" stop-color="#ff7aa2"/>
+      <stop offset="1" stop-color="#a72e5a"/>
+    </radialGradient>
+    <filter id="sphere-shadow" x="-50%" y="-50%" width="200%" height="220%">
+      <feDropShadow dx="0" dy="28" stdDeviation="24" flood-color="#000000" flood-opacity="0.55"/>
+    </filter>
+  </defs>
   <rect width="1500" height="1000" fill="#0d0d12"/>
   <rect x="120" y="160" width="320" height="520" rx="36" fill="#191922"/>
   <rect x="590" y="160" width="320" height="520" rx="36" fill="#191922"/>
   <rect x="1060" y="160" width="320" height="520" rx="36" fill="#191922"/>
-  <circle cx="280" cy="360" r="88" fill="#7aa8ff"/>
-  <circle cx="750" cy="360" r="120" fill="#9ee7d7"/>
-  <circle cx="1220" cy="360" r="156" fill="#ff7aa2"/>
+  <circle cx="280" cy="360" r="88" fill="url(#blue-sphere)" filter="url(#sphere-shadow)"/>
+  <circle cx="750" cy="360" r="120" fill="url(#mint-sphere)" filter="url(#sphere-shadow)"/>
+  <circle cx="1220" cy="360" r="156" fill="url(#pink-sphere)" filter="url(#sphere-shadow)"/>
   <path d="M475 390h75" stroke="#f4f4f4" stroke-width="12" stroke-linecap="round"/>
   <path d="m530 350 40 40-40 40" fill="none" stroke="#f4f4f4" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
   <path d="M945 390h75" stroke="#f4f4f4" stroke-width="12" stroke-linecap="round"/>

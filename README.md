@@ -1,6 +1,6 @@
 # Visual Bookmarks Grid
 
-A remixable local inspiration grid for visual bookmarks. It includes an infinite pannable masonry canvas, browser and agent search, filter chips, a metadata lightbox, manual notes, durable local boards, a local web clipper API, and an optional Chrome extension for saving pages or exact images.
+Visual Bookmarks Grid keeps visual references in one local, searchable canvas. Browse them in the grid, query the same catalog from an agent, and save pages or exact images with the Chrome extension.
 
 The repository is intentionally clean: no personal bookmarks, no private media, no local machine paths, and no account tokens. It runs with sample data immediately after cloning.
 
@@ -122,7 +122,11 @@ npm run --silent review:reopen -- --id review-id --reason "Needs another pass"
 npm run --silent review:reconcile -- --json
 ```
 
-`metadata-review.json` holds queue state, event history, and accepted patches; `metadata-review.lock` is an ephemeral single-writer lock directory containing an unpredictable owner record. Stale recovery claims the prior owner with a token-named tombstone, so an old owner cannot remove a replacement. Review state and lock artifacts are ignored and never statically served. A successful index build reconciles notes first, then applies active accepted patches after optional enrichment, records `manual-override` provenance, and rebuilds searchable text. Deleting `metadata-review.json` permanently discards accepted corrections and review history; it is data loss, not a routine rollback.
+`metadata-review.json` stores queue state, event history, and accepted patches. Writes use the ignored `metadata-review.lock` directory. Neither artifact is served by the app.
+
+Each successful index build reconciles notes, applies active accepted patches after optional enrichment, records `manual-override` provenance, and rebuilds searchable text.
+
+Deleting `metadata-review.json` permanently discards accepted corrections and review history. Treat that as data loss, not a routine rollback.
 
 ```text
 GET  /api/review-queue?status=needs_review&limit=20&offset=0
@@ -160,7 +164,7 @@ npm run --silent board:export -- --id board-id --format markdown
 - `lib/catalog/` and `lib/search.js` own normalized read-only catalog and lexical search contracts.
 - `chrome-extension/clipper-client.mjs` and `image-context-menu.mjs` are shared extension modules.
 - `test/` contains fast unit tests; `tools/` contains data, server, and extension checks.
-- [Product roadmap PRD](docs/top-five-product-roadmap.md) records the five shipped, independently merged V1 bets.
+- [Product roadmap PRD](docs/top-five-product-roadmap.md) records the five V1 bets included in this snapshot.
 
 ## Checks
 

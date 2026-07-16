@@ -42,8 +42,10 @@ const publicDemoFiles = [
   "assets/sample-branding.svg",
   "assets/sample-editorial.svg",
   "assets/sample-interface.svg",
+  "assets/sample-illustration.svg",
   "assets/sample-motion.svg",
   "assets/sample-packaging.svg",
+  "assets/sample-website.svg",
   "assets/sample-workspace.svg",
 ];
 

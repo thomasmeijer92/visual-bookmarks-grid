@@ -11,7 +11,7 @@
   "bookmarks": [
     {
       "id": "sample-interface-001",
-      "text": "Dark product interface with compact cards, clear hierarchy, and a calm operational layout.",
+      "text": "Three metric cards sit below a wide header control, with one primary action at the lower right.",
       "url": "https://example.com/samples/interface-dashboard",
       "authorHandle": "example-studio",
       "authorName": "Example Studio",
@@ -39,8 +39,8 @@
     },
     {
       "id": "sample-website-002",
-      "text": "Landing page card with a minimal web composition and strong above-the-fold product signal.",
-      "url": "https://example.com/samples/web-landing",
+      "text": "A dark web interface groups three metrics beneath a narrow toolbar and one primary action.",
+      "url": "https://example.com/samples/web-metrics",
       "authorHandle": "sample-lab",
       "authorName": "Sample Lab",
       "authorAvatar": "",
@@ -49,7 +49,7 @@
       "language": "en",
       "images": [
         {
-          "url": "assets/sample-interface.svg",
+          "url": "assets/sample-website.svg",
           "width": 1400,
           "height": 1000,
           "type": "photo"
@@ -61,8 +61,8 @@
       "replyCount": 3,
       "quoteCount": 1,
       "bookmarkCount": 44,
-      "links": ["https://example.com/samples/web-landing"],
-      "tags": ["website", "minimal", "web"],
+      "links": ["https://example.com/samples/web-metrics"],
+      "tags": ["website", "interface", "metrics"],
       "folders": ["Website"]
     },
     {
@@ -206,9 +206,9 @@
       "folders": ["Editorial", "Print", "Typography"]
     },
     {
-      "id": "sample-3d-008",
-      "text": "Illustration and 3D-inspired visual reference for playful hero or product storytelling.",
-      "url": "https://example.com/samples/illustration-3d",
+      "id": "sample-illustration-008",
+      "text": "Flat label illustration with a mint panel, dark frame, and overlapping pink and amber circles.",
+      "url": "https://example.com/samples/label-illustration",
       "authorHandle": "render-room",
       "authorName": "Render Room",
       "authorAvatar": "",
@@ -217,7 +217,7 @@
       "language": "en",
       "images": [
         {
-          "url": "assets/sample-packaging.svg",
+          "url": "assets/sample-illustration.svg",
           "width": 1200,
           "height": 1200,
           "type": "photo"
@@ -229,9 +229,9 @@
       "replyCount": 4,
       "quoteCount": 2,
       "bookmarkCount": 71,
-      "links": ["https://example.com/samples/illustration-3d"],
-      "tags": ["illustration", "3d", "playful"],
-      "folders": ["Illustration", "3D"]
+      "links": ["https://example.com/samples/label-illustration"],
+      "tags": ["illustration", "packaging", "playful"],
+      "folders": ["Illustration", "Packaging"]
     }
   ]
 }

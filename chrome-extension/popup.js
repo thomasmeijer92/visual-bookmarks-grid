@@ -15,6 +15,8 @@ const elements = {
   openGrid: $("open-grid"),
   form: $("clip-form"),
   successPanel: $("success-panel"),
+  resultHeading: $("result-heading"),
+  resultIconPath: $("result-icon-path"),
   successImage: $("success-image"),
   successTitle: $("success-title"),
   successMeta: $("success-meta"),
@@ -72,14 +74,18 @@ const clipAssetUrl = (value) => {
 };
 
 const renderSuccess = (saveResult) => {
-  elements.title.textContent = saveResult?.ok ? "Saved" : "Save failed";
+  const saved = Boolean(saveResult?.ok);
+  elements.title.textContent = saved ? "Saved" : "Save failed";
   elements.form.hidden = true;
   elements.successPanel.hidden = false;
+  elements.successPanel.dataset.state = saved ? "success" : "error";
+  elements.resultHeading.textContent = saved ? "Saved to grid" : "Save failed";
+  elements.resultIconPath.setAttribute("d", saved ? "M20 6 9 17l-5-5" : "M18 6 6 18M6 6l12 12");
 
-  if (!saveResult?.ok) {
+  if (!saved) {
     elements.successImage.src = "icon.svg";
     elements.successTitle.textContent = "Could not save item";
-    elements.successMeta.textContent = "Check the local server";
+    elements.successMeta.textContent = "Start the local server and confirm the Server URL";
     elements.successMessage.textContent = saveResult?.error || "The local server did not accept the clip.";
     return;
   }
@@ -89,8 +95,8 @@ const renderSuccess = (saveResult) => {
   elements.successTitle.textContent = clip.title || "Saved item";
   elements.successMeta.textContent = [clip.sourcePlatform, clip.siteName || clip.host].filter(Boolean).join(" - ") || "Visual Grid";
   elements.successMessage.textContent = clip.captureMode === "image"
-    ? "The selected image is saved. Open grids refresh automatically."
-    : "The page is saved. Open grids refresh automatically.";
+    ? "The selected image is saved. Any open grid refreshes automatically."
+    : "The page is saved. Any open grid refreshes automatically.";
 };
 
 const renderForm = () => {
@@ -163,6 +169,8 @@ const init = async () => {
     const result = await chrome.storage.local.get([LAST_SAVE_KEY]);
     renderSuccess(result[LAST_SAVE_KEY]);
   }
+
+  document.documentElement.dataset.popupReady = "true";
 };
 
 void init();

@@ -17,7 +17,11 @@ The loader emits one record for each deterministic source URL and image-zero med
 
 `searchText` is derived in documented field order by normalizing and lowercasing each final scalar or list value, then appending up to `MAX_SEARCH_TEXT_LENGTH` (10,000 UTF-16 code units). Truncation never splits a surrogate pair and reports only a count plus the static `max_search_text_length_exceeded` reason; it never includes source content. Runtime ranking reads the structured fields, so truncating this convenience projection does not change search results.
 
-Catalog timestamps are accepted only when they are calendar-valid ISO date-time strings with an explicit `Z` or numeric offset. Component checks reject impossible dates, times, and offsets before parsing; timezone-less, invalid, and unknown values normalize to `null`, making note conflict ordering independent of the process timezone. Manual-note object-map keys remain exact internal resolver selectors. Array positions are validation indexes only, so array entries resolve exclusively through explicit `recordId`, `mediaId`, or source-record/media-URL fields. Validation errors identify entries only by a static role and numeric index.
+Catalog timestamps must be calendar-valid ISO date-time strings with an explicit `Z` or numeric offset. Impossible dates, times, and offsets are rejected before parsing. Timezone-less, invalid, and unknown values normalize to `null`, so note conflict ordering does not depend on the process timezone.
+
+Manual-note object-map keys remain exact internal resolver selectors. Array positions are validation indexes only; array entries resolve through explicit `recordId`, `mediaId`, or source-record/media-URL fields.
+
+Validation errors identify entries by a static role and numeric index. They never include resolver selectors or source content.
 
 Imported human-readable fields and lists reject non-whitespace C0/C1 controls while preserving the ordinary whitespace collapsing used by catalog normalization. Exact identity and resolver aliases are not rewritten. Human CLI rendering escapes any remaining terminal control bytes at the output boundary, including controls carried by exact identity fields, and JSON output remains valid machine-readable JSON.
 

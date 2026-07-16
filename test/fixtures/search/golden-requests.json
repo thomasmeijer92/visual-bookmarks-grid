@@ -21,8 +21,7 @@
     "name": "style facet",
     "request": { "filters": { "style": ["3d"] } },
     "expectedIds": [
-      "visual:v1:c0fd15afbf1826a998ce301d6996b82d7de27d670dc2e36bbd6b8193dede92ee",
-      "visual:v1:6a280479cdbc5bae83691ad9319c877f332d528feefb42013bbafe92a4aaa089"
+      "visual:v1:c0fd15afbf1826a998ce301d6996b82d7de27d670dc2e36bbd6b8193dede92ee"
     ]
   },
   {
@@ -30,8 +29,8 @@
     "request": { "filters": { "color": ["Pink"] } },
     "expectedIds": [
       "visual:v1:9a8c177f0c2c60d8f5a291beb7a707ed419e15e918039073ec1a8e1b98820ef5",
-      "visual:v1:a2a8e779d2a53ce35e0095c10d687caa3e3e591e6577fba2259c0b41de146cf0",
-      "visual:v1:6a280479cdbc5bae83691ad9319c877f332d528feefb42013bbafe92a4aaa089"
+      "visual:v1:f3f6ce8a88d31a2564c39617dafb0da66c3f2207d616165cb9f5b166ad1558b7",
+      "visual:v1:a2a8e779d2a53ce35e0095c10d687caa3e3e591e6577fba2259c0b41de146cf0"
     ]
   },
   {
@@ -44,7 +43,7 @@
     "request": { "filters": { "source": ["sample"] }, "limit": 2 },
     "expectedIds": [
       "visual:v1:9a8c177f0c2c60d8f5a291beb7a707ed419e15e918039073ec1a8e1b98820ef5",
-      "visual:v1:b5763ea0d65a1f45344b9e3c2251f1b1992cbd6a0296b461ff3806ec0f9660b8"
+      "visual:v1:f3f6ce8a88d31a2564c39617dafb0da66c3f2207d616165cb9f5b166ad1558b7"
     ],
     "expectedTotal": 8
   },
@@ -63,8 +62,8 @@
     "name": "pagination preserves total",
     "request": { "limit": 2, "offset": 2 },
     "expectedIds": [
-      "visual:v1:b0801ebe79a416d03b5eed508b5f399d8834e77c7b7f623aedc72fd605cc5401",
-      "visual:v1:c0fd15afbf1826a998ce301d6996b82d7de27d670dc2e36bbd6b8193dede92ee"
+      "visual:v1:b5763ea0d65a1f45344b9e3c2251f1b1992cbd6a0296b461ff3806ec0f9660b8",
+      "visual:v1:b0801ebe79a416d03b5eed508b5f399d8834e77c7b7f623aedc72fd605cc5401"
     ],
     "expectedTotal": 8
   },
@@ -87,7 +86,7 @@
     "request": { "filters": { "category": ["Packaging", "Illustration"] } },
     "expectedIds": [
       "visual:v1:9a8c177f0c2c60d8f5a291beb7a707ed419e15e918039073ec1a8e1b98820ef5",
-      "visual:v1:6a280479cdbc5bae83691ad9319c877f332d528feefb42013bbafe92a4aaa089"
+      "visual:v1:f3f6ce8a88d31a2564c39617dafb0da66c3f2207d616165cb9f5b166ad1558b7"
     ]
   }
 ]
