@@ -1,0 +1,15 @@
+{
+  "generatedAt": "2026-07-12T10:00:00.000Z",
+  "notes": {
+    "card-media": {
+      "mediaId": "card-media",
+      "note": "Card alias loses the equal-time tie.",
+      "updatedAt": "2026-07-12T10:00:00.000Z"
+    },
+    "canonical-media": {
+      "mediaId": "canonical-media",
+      "note": "Canonical alias wins the equal-time tie.",
+      "updatedAt": "2026-07-12T10:00:00.000Z"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "cards": [
+    {
+      "mediaId": "fixture-pricing-secondary-card",
+      "title": "Secondary Motion Detail",
+      "description": "This describes image one and must stay unused.",
+      "source": "Fixture",
+      "category": "Motion",
+      "style": ["Playful"],
+      "color": ["Blue"],
+      "interaction": ["Scroll"],
+      "media": {
+        "type": "photo",
+        "url": "assets/sample-motion.svg",
+        "width": 1500,
+        "height": 1000
+      },
+      "tweet": { "id": "fixture-pricing-001" }
+    },
+    {
+      "mediaId": "fixture-pricing-primary-card",
+      "title": "Dark Minimal Pricing",
+      "description": "Three concise plans with clear hierarchy.",
+      "creator": "Fixture Studio",
+      "source": "Fixture",
+      "category": "Interface",
+      "style": ["Minimal"],
+      "color": ["Dark"],
+      "interaction": ["Motion"],
+      "visible": ["three pricing cards"],
+      "tags": ["SaaS", "pricing"],
+      "media": {
+        "type": "photo",
+        "url": "assets/sample-interface.svg",
+        "width": 1400,
+        "height": 1000
+      },
+      "tweet": { "id": "fixture-pricing-001" }
+    },
+    {
+      "mediaId": "fixture-notes-card",
+      "title": "Measured Letterforms",
+      "source": "Fixture",
+      "category": "Typography",
+      "style": ["Editorial"],
+      "color": ["Light"],
+      "interaction": ["None"],
+      "media": {
+        "type": "photo",
+        "url": "assets/sample-editorial.svg",
+        "width": 1300,
+        "height": 1600
+      },
+      "tweet": { "id": "fixture-notes-002" }
+    }
+  ]
+}

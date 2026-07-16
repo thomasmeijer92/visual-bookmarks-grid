@@ -1,0 +1,19 @@
+{
+  "clips": [
+    {
+      "id": "",
+      "sourcePlatform": "Example",
+      "sourceUrl": "https://example.com/captured?from=clipper",
+      "canonicalUrl": "https://example.com/reference",
+      "title": "Root-relative clip",
+      "description": "A clipped website reference.",
+      "tags": ["website"],
+      "media": {
+        "type": "photo",
+        "url": "/assets/clips/web-example-001/image.webp",
+        "width": 1200,
+        "height": 900
+      }
+    }
+  ]
+}

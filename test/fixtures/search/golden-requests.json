@@ -1,0 +1,93 @@
+[
+  {
+    "name": "exact title phrase ranks first",
+    "request": { "query": "compact operations dashboard" },
+    "expectedIds": ["visual:v1:b5763ea0d65a1f45344b9e3c2251f1b1992cbd6a0296b461ff3806ec0f9660b8"]
+  },
+  {
+    "name": "single term ranking is deterministic",
+    "request": { "query": "workspace" },
+    "expectedIds": ["visual:v1:0970914853d68b89c3e17f77698db154e56f3e125a81e93bed888b0d2305b4e6"]
+  },
+  {
+    "name": "category facet",
+    "request": { "query": "", "filters": { "category": ["Interface"] } },
+    "expectedIds": [
+      "visual:v1:b5763ea0d65a1f45344b9e3c2251f1b1992cbd6a0296b461ff3806ec0f9660b8",
+      "visual:v1:c0fd15afbf1826a998ce301d6996b82d7de27d670dc2e36bbd6b8193dede92ee"
+    ]
+  },
+  {
+    "name": "style facet",
+    "request": { "filters": { "style": ["3d"] } },
+    "expectedIds": [
+      "visual:v1:c0fd15afbf1826a998ce301d6996b82d7de27d670dc2e36bbd6b8193dede92ee",
+      "visual:v1:6a280479cdbc5bae83691ad9319c877f332d528feefb42013bbafe92a4aaa089"
+    ]
+  },
+  {
+    "name": "color facet",
+    "request": { "filters": { "color": ["Pink"] } },
+    "expectedIds": [
+      "visual:v1:9a8c177f0c2c60d8f5a291beb7a707ed419e15e918039073ec1a8e1b98820ef5",
+      "visual:v1:a2a8e779d2a53ce35e0095c10d687caa3e3e591e6577fba2259c0b41de146cf0",
+      "visual:v1:6a280479cdbc5bae83691ad9319c877f332d528feefb42013bbafe92a4aaa089"
+    ]
+  },
+  {
+    "name": "interaction facet",
+    "request": { "filters": { "interaction": ["Motion"] } },
+    "expectedIds": ["visual:v1:c0fd15afbf1826a998ce301d6996b82d7de27d670dc2e36bbd6b8193dede92ee"]
+  },
+  {
+    "name": "source facet",
+    "request": { "filters": { "source": ["sample"] }, "limit": 2 },
+    "expectedIds": [
+      "visual:v1:9a8c177f0c2c60d8f5a291beb7a707ed419e15e918039073ec1a8e1b98820ef5",
+      "visual:v1:b5763ea0d65a1f45344b9e3c2251f1b1992cbd6a0296b461ff3806ec0f9660b8"
+    ],
+    "expectedTotal": 8
+  },
+  {
+    "name": "media type facet",
+    "request": { "filters": { "mediaType": ["PHOTO"] }, "limit": 1 },
+    "expectedIds": ["visual:v1:9a8c177f0c2c60d8f5a291beb7a707ed419e15e918039073ec1a8e1b98820ef5"],
+    "expectedTotal": 8
+  },
+  {
+    "name": "empty query filtered browse",
+    "request": { "query": "", "filters": { "category": ["Branding"] } },
+    "expectedIds": ["visual:v1:a2a8e779d2a53ce35e0095c10d687caa3e3e591e6577fba2259c0b41de146cf0"]
+  },
+  {
+    "name": "pagination preserves total",
+    "request": { "limit": 2, "offset": 2 },
+    "expectedIds": [
+      "visual:v1:b0801ebe79a416d03b5eed508b5f399d8834e77c7b7f623aedc72fd605cc5401",
+      "visual:v1:c0fd15afbf1826a998ce301d6996b82d7de27d670dc2e36bbd6b8193dede92ee"
+    ],
+    "expectedTotal": 8
+  },
+  {
+    "name": "or within and across facets",
+    "request": {
+      "filters": {
+        "category": ["Interface", "Typography"],
+        "color": ["Dark", "Light"]
+      }
+    },
+    "expectedIds": [
+      "visual:v1:b5763ea0d65a1f45344b9e3c2251f1b1992cbd6a0296b461ff3806ec0f9660b8",
+      "visual:v1:b0801ebe79a416d03b5eed508b5f399d8834e77c7b7f623aedc72fd605cc5401",
+      "visual:v1:c0fd15afbf1826a998ce301d6996b82d7de27d670dc2e36bbd6b8193dede92ee"
+    ]
+  },
+  {
+    "name": "repeatable facet values behave as or",
+    "request": { "filters": { "category": ["Packaging", "Illustration"] } },
+    "expectedIds": [
+      "visual:v1:9a8c177f0c2c60d8f5a291beb7a707ed419e15e918039073ec1a8e1b98820ef5",
+      "visual:v1:6a280479cdbc5bae83691ad9319c877f332d528feefb42013bbafe92a4aaa089"
+    ]
+  }
+]

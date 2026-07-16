@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1000" role="img" aria-label="Sample motion interaction storyboard">
+  <rect width="1500" height="1000" fill="#0d0d12"/>
+  <rect x="120" y="160" width="320" height="520" rx="36" fill="#191922"/>
+  <rect x="590" y="160" width="320" height="520" rx="36" fill="#191922"/>
+  <rect x="1060" y="160" width="320" height="520" rx="36" fill="#191922"/>
+  <circle cx="280" cy="360" r="88" fill="#7aa8ff"/>
+  <circle cx="750" cy="360" r="120" fill="#9ee7d7"/>
+  <circle cx="1220" cy="360" r="156" fill="#ff7aa2"/>
+  <path d="M475 390h75" stroke="#f4f4f4" stroke-width="12" stroke-linecap="round"/>
+  <path d="m530 350 40 40-40 40" fill="none" stroke="#f4f4f4" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M945 390h75" stroke="#f4f4f4" stroke-width="12" stroke-linecap="round"/>
+  <path d="m1000 350 40 40-40 40" fill="none" stroke="#f4f4f4" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="235" y="750" width="1030" height="42" rx="21" fill="#2d2d36"/>
+  <rect x="235" y="750" width="610" height="42" rx="21" fill="#ffc46b"/>
+</svg>

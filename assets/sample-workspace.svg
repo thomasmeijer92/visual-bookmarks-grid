@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-label="Sample workspace desk">
+  <rect width="1600" height="1000" fill="#d8d9d2"/>
+  <rect x="160" y="170" width="1280" height="660" rx="44" fill="#2a2c2d"/>
+  <rect x="250" y="250" width="620" height="360" rx="22" fill="#111"/>
+  <rect x="285" y="290" width="550" height="48" rx="24" fill="#e9eef4"/>
+  <rect x="285" y="380" width="420" height="22" rx="11" fill="#7aa8ff"/>
+  <rect x="285" y="430" width="500" height="22" rx="11" fill="#9ee7d7"/>
+  <rect x="935" y="250" width="290" height="420" rx="32" fill="#151515"/>
+  <rect x="980" y="310" width="200" height="40" rx="20" fill="#f6f6f1"/>
+  <rect x="980" y="390" width="120" height="120" rx="30" fill="#ffc46b"/>
+  <rect x="1030" y="730" width="310" height="46" rx="23" fill="#1b1b1b"/>
+  <circle cx="1340" cy="310" r="64" fill="#ff7aa2"/>
+</svg>

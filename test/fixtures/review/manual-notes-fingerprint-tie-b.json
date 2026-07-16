@@ -1,0 +1,15 @@
+{
+  "generatedAt": "2026-07-12T10:00:00.000Z",
+  "notes": {
+    "card-two": {
+      "mediaId": "card-two",
+      "note": "Fingerprint tie two.",
+      "updatedAt": "2026-07-12T10:00:00.000Z"
+    },
+    "card-one": {
+      "mediaId": "card-one",
+      "note": "Fingerprint tie one.",
+      "updatedAt": "2026-07-12T10:00:00.000Z"
+    }
+  }
+}

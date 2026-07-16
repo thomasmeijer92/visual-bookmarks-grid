@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visual Grid Clipper</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="header">
+      <div>
+        <p class="kicker">Visual Grid</p>
+        <h1 id="view-title">Save page</h1>
+      </div>
+      <button id="open-grid" class="icon-button" type="button" aria-label="Open grid">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M15 3h6v6"></path>
+          <path d="M10 14 21 3"></path>
+          <path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"></path>
+        </svg>
+      </button>
+    </header>
+
+    <section id="success-panel" class="success-panel" hidden>
+      <div class="success-mark" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 6 9 17l-5-5"></path>
+        </svg>
+      </div>
+      <h2>Saved to grid</h2>
+      <p id="success-message">Your inspiration is ready in the local grid.</p>
+      <article class="preview-card compact">
+        <img id="success-image" src="" alt="">
+        <div>
+          <h3 id="success-title">Saved item</h3>
+          <p id="success-meta">Visual Grid</p>
+        </div>
+      </article>
+      <button id="save-another" class="primary-button" type="button">Save another</button>
+    </section>
+
+    <form id="clip-form" class="clip-form">
+      <article class="preview-card">
+        <img id="page-avatar" src="" alt="">
+        <div>
+          <h2 id="page-title">Current page</h2>
+          <p id="page-host">Loading...</p>
+        </div>
+      </article>
+
+      <label class="field">
+        <span>Tags</span>
+        <input id="tags-input" type="text" placeholder="branding, motion, workspace" autocomplete="off">
+      </label>
+
+      <label class="field">
+        <span>Note</span>
+        <textarea id="note-input" rows="4" maxlength="2400" placeholder="Optional context for later search"></textarea>
+      </label>
+
+      <details class="server-details">
+        <summary>Local server</summary>
+        <label class="field compact-field">
+          <span>Server URL</span>
+          <input id="server-url" type="url" placeholder="http://127.0.0.1:3000">
+        </label>
+      </details>
+
+      <p id="status" class="status" aria-live="polite"></p>
+      <button id="save-button" class="primary-button" type="submit">Save to grid</button>
+    </form>
+  </main>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

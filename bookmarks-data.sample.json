@@ -1,0 +1,237 @@
+{
+  "folders": [
+    { "id": "website", "name": "Website" },
+    { "id": "interface", "name": "Interface" },
+    { "id": "branding", "name": "Branding" },
+    { "id": "workspace", "name": "Workspace" },
+    { "id": "packaging", "name": "Packaging" },
+    { "id": "motion", "name": "Motion" },
+    { "id": "editorial", "name": "Editorial" }
+  ],
+  "bookmarks": [
+    {
+      "id": "sample-interface-001",
+      "text": "Dark product interface with compact cards, clear hierarchy, and a calm operational layout.",
+      "url": "https://example.com/samples/interface-dashboard",
+      "authorHandle": "example-studio",
+      "authorName": "Example Studio",
+      "authorAvatar": "",
+      "postedAt": "2026-01-01T12:00:00.000Z",
+      "bookmarkedAt": "2026-01-01T12:30:00.000Z",
+      "language": "en",
+      "images": [
+        {
+          "url": "assets/sample-interface.svg",
+          "width": 1400,
+          "height": 1000,
+          "type": "photo"
+        }
+      ],
+      "mediaCount": 1,
+      "likeCount": 128,
+      "repostCount": 18,
+      "replyCount": 4,
+      "quoteCount": 2,
+      "bookmarkCount": 64,
+      "links": ["https://example.com/samples/interface-dashboard"],
+      "tags": ["interface", "product", "dark", "dashboard"],
+      "folders": ["Interface", "Product"]
+    },
+    {
+      "id": "sample-website-002",
+      "text": "Landing page card with a minimal web composition and strong above-the-fold product signal.",
+      "url": "https://example.com/samples/web-landing",
+      "authorHandle": "sample-lab",
+      "authorName": "Sample Lab",
+      "authorAvatar": "",
+      "postedAt": "2026-01-02T12:00:00.000Z",
+      "bookmarkedAt": "2026-01-02T12:30:00.000Z",
+      "language": "en",
+      "images": [
+        {
+          "url": "assets/sample-interface.svg",
+          "width": 1400,
+          "height": 1000,
+          "type": "photo"
+        }
+      ],
+      "mediaCount": 1,
+      "likeCount": 96,
+      "repostCount": 12,
+      "replyCount": 3,
+      "quoteCount": 1,
+      "bookmarkCount": 44,
+      "links": ["https://example.com/samples/web-landing"],
+      "tags": ["website", "minimal", "web"],
+      "folders": ["Website"]
+    },
+    {
+      "id": "sample-branding-003",
+      "text": "Brand identity poster with a tight wordmark, warm neutrals, and bold color accents.",
+      "url": "https://example.com/samples/brand-system",
+      "authorHandle": "brand-foundry",
+      "authorName": "Brand Foundry",
+      "authorAvatar": "",
+      "postedAt": "2026-01-03T12:00:00.000Z",
+      "bookmarkedAt": "2026-01-03T12:30:00.000Z",
+      "language": "en",
+      "images": [
+        {
+          "url": "assets/sample-branding.svg",
+          "width": 1200,
+          "height": 1500,
+          "type": "photo"
+        }
+      ],
+      "mediaCount": 1,
+      "likeCount": 211,
+      "repostCount": 35,
+      "replyCount": 7,
+      "quoteCount": 4,
+      "bookmarkCount": 118,
+      "links": ["https://example.com/samples/brand-system"],
+      "tags": ["branding", "typography", "poster"],
+      "folders": ["Branding", "Typography"]
+    },
+    {
+      "id": "sample-workspace-004",
+      "text": "Workspace and studio display reference with a balanced desk setup and focused screen layout.",
+      "url": "https://example.com/samples/workspace-desk",
+      "authorHandle": "desk-archive",
+      "authorName": "Desk Archive",
+      "authorAvatar": "",
+      "postedAt": "2026-01-04T12:00:00.000Z",
+      "bookmarkedAt": "2026-01-04T12:30:00.000Z",
+      "language": "en",
+      "images": [
+        {
+          "url": "assets/sample-workspace.svg",
+          "width": 1600,
+          "height": 1000,
+          "type": "photo"
+        }
+      ],
+      "mediaCount": 1,
+      "likeCount": 174,
+      "repostCount": 22,
+      "replyCount": 5,
+      "quoteCount": 2,
+      "bookmarkCount": 82,
+      "links": ["https://example.com/samples/workspace-desk"],
+      "tags": ["workspace", "desk", "studio-display"],
+      "folders": ["Workspace", "Studio Display"]
+    },
+    {
+      "id": "sample-packaging-005",
+      "text": "Packaging system with a high-contrast label, soft product palette, and shelf-ready silhouette.",
+      "url": "https://example.com/samples/packaging-system",
+      "authorHandle": "shelf-studio",
+      "authorName": "Shelf Studio",
+      "authorAvatar": "",
+      "postedAt": "2026-01-05T12:00:00.000Z",
+      "bookmarkedAt": "2026-01-05T12:30:00.000Z",
+      "language": "en",
+      "images": [
+        {
+          "url": "assets/sample-packaging.svg",
+          "width": 1200,
+          "height": 1200,
+          "type": "photo"
+        }
+      ],
+      "mediaCount": 1,
+      "likeCount": 143,
+      "repostCount": 16,
+      "replyCount": 4,
+      "quoteCount": 1,
+      "bookmarkCount": 77,
+      "links": ["https://example.com/samples/packaging-system"],
+      "tags": ["packaging", "print", "branding"],
+      "folders": ["Packaging", "Print"]
+    },
+    {
+      "id": "sample-motion-006",
+      "text": "Motion storyboard showing a three-step interaction expanding across adjacent cards.",
+      "url": "https://example.com/samples/motion-storyboard",
+      "authorHandle": "motion-notes",
+      "authorName": "Motion Notes",
+      "authorAvatar": "",
+      "postedAt": "2026-01-06T12:00:00.000Z",
+      "bookmarkedAt": "2026-01-06T12:30:00.000Z",
+      "language": "en",
+      "images": [
+        {
+          "url": "assets/sample-motion.svg",
+          "width": 1500,
+          "height": 1000,
+          "type": "photo"
+        }
+      ],
+      "mediaCount": 1,
+      "likeCount": 188,
+      "repostCount": 29,
+      "replyCount": 6,
+      "quoteCount": 3,
+      "bookmarkCount": 102,
+      "links": ["https://example.com/samples/motion-storyboard"],
+      "tags": ["motion", "animation", "microinteraction"],
+      "folders": ["Motion", "Interface"]
+    },
+    {
+      "id": "sample-editorial-007",
+      "text": "Editorial layout sample with a magazine-like grid, large serif type, and image-led hierarchy.",
+      "url": "https://example.com/samples/editorial-layout",
+      "authorHandle": "layout-library",
+      "authorName": "Layout Library",
+      "authorAvatar": "",
+      "postedAt": "2026-01-07T12:00:00.000Z",
+      "bookmarkedAt": "2026-01-07T12:30:00.000Z",
+      "language": "en",
+      "images": [
+        {
+          "url": "assets/sample-editorial.svg",
+          "width": 1300,
+          "height": 1600,
+          "type": "photo"
+        }
+      ],
+      "mediaCount": 1,
+      "likeCount": 119,
+      "repostCount": 14,
+      "replyCount": 3,
+      "quoteCount": 1,
+      "bookmarkCount": 66,
+      "links": ["https://example.com/samples/editorial-layout"],
+      "tags": ["editorial", "typography", "print"],
+      "folders": ["Editorial", "Print", "Typography"]
+    },
+    {
+      "id": "sample-3d-008",
+      "text": "Illustration and 3D-inspired visual reference for playful hero or product storytelling.",
+      "url": "https://example.com/samples/illustration-3d",
+      "authorHandle": "render-room",
+      "authorName": "Render Room",
+      "authorAvatar": "",
+      "postedAt": "2026-01-08T12:00:00.000Z",
+      "bookmarkedAt": "2026-01-08T12:30:00.000Z",
+      "language": "en",
+      "images": [
+        {
+          "url": "assets/sample-packaging.svg",
+          "width": 1200,
+          "height": 1200,
+          "type": "photo"
+        }
+      ],
+      "mediaCount": 1,
+      "likeCount": 132,
+      "repostCount": 20,
+      "replyCount": 4,
+      "quoteCount": 2,
+      "bookmarkCount": 71,
+      "links": ["https://example.com/samples/illustration-3d"],
+      "tags": ["illustration", "3d", "playful"],
+      "folders": ["Illustration", "3D"]
+    }
+  ]
+}

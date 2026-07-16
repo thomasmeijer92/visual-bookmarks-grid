@@ -1,0 +1,63 @@
+{
+  "name": "visual-bookmarks-grid",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A remixable local inspiration grid with sample data, web clipping, and a Chrome extension.",
+  "scripts": {
+    "check": "npm run check:unit && npm run check:data && npm run check:server && npm run check:extension",
+    "index:build": "node tools/build-index.mjs",
+    "index:check": "node tools/check-index.mjs",
+    "review:list": "node tools/review-list.mjs",
+    "review:resolve": "node tools/review-resolve.mjs",
+    "review:dismiss": "node tools/review-dismiss.mjs",
+    "review:reopen": "node tools/review-reopen.mjs",
+    "review:reconcile": "node tools/review-reconcile.mjs",
+    "board:create": "node tools/board-create.mjs",
+    "board:list": "node tools/board-list.mjs",
+    "board:show": "node tools/board-show.mjs",
+    "board:update": "node tools/board-update.mjs",
+    "board:delete": "node tools/board-delete.mjs",
+    "board:add": "node tools/board-add.mjs",
+    "board:remove": "node tools/board-remove.mjs",
+    "board:reorder": "node tools/board-reorder.mjs",
+    "board:note": "node tools/board-note.mjs",
+    "board:export": "node tools/board-export.mjs",
+    "check:boards": "NODE_OPTIONS=\"--require=./test/root-review-artifact-guard.cjs${NODE_OPTIONS:+ $NODE_OPTIONS}\" node --test test/boards*.test.cjs",
+    "search": "node tools/search.mjs",
+    "check:index": "NODE_OPTIONS=\"--require=./test/root-review-artifact-guard.cjs${NODE_OPTIONS:+ $NODE_OPTIONS}\" node --test test/index-pipeline.test.cjs",
+    "check:search": "NODE_OPTIONS=\"--require=./test/root-review-artifact-guard.cjs${NODE_OPTIONS:+ $NODE_OPTIONS}\" node --test test/catalog-search.test.cjs",
+    "check:review": "NODE_OPTIONS=\"--require=./test/root-review-artifact-guard.cjs${NODE_OPTIONS:+ $NODE_OPTIONS}\" node --test test/review-queue.test.cjs",
+    "check:locks": "NODE_OPTIONS=\"--require=./test/root-review-artifact-guard.cjs${NODE_OPTIONS:+ $NODE_OPTIONS}\" node --test test/local-state-lock.test.cjs",
+    "check:review-guard": "node --test test/root-review-artifact-guard.test.cjs",
+    "check:unit": "NODE_OPTIONS=\"--require=./test/root-review-artifact-guard.cjs${NODE_OPTIONS:+ $NODE_OPTIONS}\" node --test test/*.test.*",
+    "check:data": "node tools/check-bookmarks-data.mjs",
+    "check:server": "NODE_OPTIONS=\"--require=./test/root-review-artifact-guard.cjs${NODE_OPTIONS:+ $NODE_OPTIONS}\" node tools/smoke-server.mjs",
+    "check:extension": "node tools/check-extension.mjs",
+    "demo:build": "node tools/build-public-demo.mjs",
+    "check:e2e": "playwright test -c playwright.app.config.mjs",
+    "check:e2e:demo": "playwright test -c playwright.demo.config.mjs",
+    "check:e2e:extension": "playwright test -c playwright.extension.config.mjs",
+    "check:all": "npm run check && npm run check:e2e && npm run check:e2e:demo && npm run check:e2e:extension",
+    "test": "npm run check",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "bookmarks",
+    "inspiration",
+    "masonry",
+    "web-clipper",
+    "chrome-extension"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@web-kits/audio": "^0.1.0",
+    "motion": "^12.38.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.61.1"
+  }
+}

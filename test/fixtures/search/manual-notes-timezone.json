@@ -1,0 +1,14 @@
+{
+  "notes": [
+    {
+      "mediaId": "fixture-notes-card",
+      "note": "Timezone-less candidate",
+      "updatedAt": "2026-02-03T10:00:00"
+    },
+    {
+      "mediaId": "fixture-notes-card",
+      "note": "Offset-stable winner",
+      "updatedAt": "2026-02-03T15:00:00Z"
+    }
+  ]
+}

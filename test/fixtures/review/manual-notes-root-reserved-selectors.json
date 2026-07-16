@@ -1,0 +1,17 @@
+{
+  "notes": {
+    "mediaId": "fixture-notes-card",
+    "note": "The notes selector remains a note entry.",
+    "updatedAt": "2026-02-03T10:00:00.000Z"
+  },
+  "generatedAt": {
+    "mediaId": "fixture-notes-card",
+    "note": "The generatedAt selector remains a note entry.",
+    "updatedAt": "2026-02-03T10:01:00.000Z"
+  },
+  "source": {
+    "mediaId": "fixture-notes-card",
+    "note": "The source selector remains a note entry.",
+    "updatedAt": "2026-02-03T10:02:00.000Z"
+  }
+}

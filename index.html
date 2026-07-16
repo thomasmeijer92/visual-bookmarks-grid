@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A local visual bookmarks grid for collecting, searching, filtering, and clipping design inspiration.">
+  <meta name="theme-color" content="#111111">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:title" content="Visual Bookmarks Grid">
+  <meta property="og:description" content="A local visual bookmarks grid for collecting, searching, filtering, and clipping design inspiration.">
+  <meta property="og:type" content="website">
+  <title>Visual Bookmarks Grid</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header id="design-topbar" class="design-topbar">
+    <div class="filter-scroll" aria-label="Design filters">
+      <div id="filter-chips" class="filter-chips"></div>
+    </div>
+  </header>
+  <div id="viewport">
+    <div id="container">
+      <div id="grid"></div>
+    </div>
+  </div>
+  <!-- Search -->
+  <div id="search-bar" class="search-bar">
+    <svg class="search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+      <circle cx="7" cy="7" r="5"/>
+      <line x1="11" y1="11" x2="14" y2="14"/>
+    </svg>
+    <input id="search-input" type="text" placeholder="Search bookmarks…" autocomplete="off" spellcheck="false" aria-label="Search bookmarks">
+    <kbd class="search-shortcut" id="search-shortcut">⌘K</kbd>
+  </div>
+  <div id="search-live" class="sr-only" aria-live="polite"></div>
+
+  <button id="clip-add-button" class="clip-add-button" type="button" aria-label="Save URL">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M10 13a5 5 0 0 0 7.07 0l2.12-2.12a5 5 0 0 0-7.07-7.07L10.9 5.03"></path>
+      <path d="M14 11a5 5 0 0 0-7.07 0L4.81 13.12a5 5 0 0 0 7.07 7.07l1.22-1.22"></path>
+      <path d="M12 7v10"></path>
+      <path d="M7 12h10"></path>
+    </svg>
+  </button>
+  <button id="board-create-button" class="board-create-button" type="button" aria-label="Create board from filtered results" title="Create board">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+      <path d="M8 12h8"></path>
+      <path d="M12 8v8"></path>
+    </svg>
+  </button>
+
+  <div id="clip-modal" class="clip-modal" hidden>
+    <form id="clip-form" class="clip-panel" role="dialog" aria-modal="true" aria-labelledby="clip-title" aria-describedby="clip-status">
+      <div class="clip-panel-header">
+        <h2 id="clip-title" class="clip-panel-title">Save URL</h2>
+        <button id="clip-close" class="clip-close" type="button" aria-label="Close">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <label class="clip-field">
+        <span>URL</span>
+        <input id="clip-url-input" type="url" inputmode="url" autocomplete="url" placeholder="https://..." required aria-describedby="clip-status">
+      </label>
+      <label class="clip-field">
+        <span>Tags</span>
+        <input id="clip-tags-input" type="text" placeholder="branding, landing, motion">
+      </label>
+      <label class="clip-field">
+        <span>Note</span>
+        <textarea id="clip-note-input" rows="3" maxlength="2400" placeholder="What should be searchable later?"></textarea>
+      </label>
+      <div id="clip-preview" class="clip-preview" hidden>
+        <img id="clip-preview-image" src="" alt="">
+        <div>
+          <p id="clip-preview-title"></p>
+          <p id="clip-preview-meta"></p>
+        </div>
+      </div>
+      <p id="clip-status" class="clip-status" aria-live="polite"></p>
+      <div class="clip-actions">
+        <button id="clip-cancel" class="clip-button secondary" type="button">Cancel</button>
+        <button id="clip-save" class="clip-button primary" type="submit">Save</button>
+      </div>
+    </form>
+  </div>
+
+  <section id="board-header" class="board-header" aria-label="Board" hidden>
+    <div class="board-heading">
+      <p id="board-header-name" class="board-header-name"></p>
+      <p id="board-header-counts" class="board-header-counts"></p>
+    </div>
+    <div class="board-header-actions">
+      <button id="board-edit-button" type="button">Edit</button>
+      <button id="board-copy-button" type="button">Copy</button>
+      <button id="board-export-button" type="button">Export</button>
+      <button id="board-close-button" type="button" aria-label="Close board">Close</button>
+    </div>
+  </section>
+  <section id="board-unavailable-repairs" class="board-unavailable-repairs" aria-labelledby="board-unavailable-repairs-title" hidden>
+    <h2 id="board-unavailable-repairs-title" class="board-repair-title">Unavailable references</h2>
+    <p id="board-unavailable-repairs-summary" class="board-repair-summary"></p>
+    <ol id="board-unavailable-repairs-list" class="board-repair-list" aria-label="Unavailable references in board order"></ol>
+  </section>
+  <p id="board-live" class="sr-only" aria-live="polite"></p>
+
+  <div id="board-modal" class="board-modal" hidden inert aria-hidden="true">
+    <form id="board-form" class="board-panel" role="dialog" aria-modal="true" aria-labelledby="board-dialog-title" aria-describedby="board-dialog-status" aria-busy="false" novalidate>
+      <div class="clip-panel-header">
+        <h2 id="board-dialog-title" class="clip-panel-title">Create board</h2>
+        <button id="board-dialog-close" class="clip-close" type="button" aria-label="Close">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <label class="clip-field"><span>Name</span><input id="board-name-input" type="text" maxlength="120" required aria-describedby="board-dialog-status" aria-invalid="false"></label>
+      <label class="clip-field"><span>Brief</span><textarea id="board-brief-input" rows="3" maxlength="4000" aria-describedby="board-dialog-status" aria-invalid="false"></textarea></label>
+      <div id="board-selection-heading" class="board-selection-heading"><span>References</span><span id="board-unavailable-count"></span></div>
+      <div id="board-selection-list" class="board-selection-list" role="group" aria-label="Board references" aria-describedby="board-dialog-status"></div>
+      <p id="board-dialog-status" class="clip-status" aria-live="polite"></p>
+      <div class="clip-actions">
+        <button id="board-cancel" class="clip-button secondary" type="button">Cancel</button>
+        <button id="board-save" class="clip-button primary" type="submit">Create</button>
+      </div>
+    </form>
+  </div>
+
+  <div id="lightbox-overlay" class="lightbox-overlay" hidden inert aria-hidden="true">
+    <aside id="lightbox-info" class="lightbox-info" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+      <div class="lightbox-controls">
+        <button id="lightbox-close" class="lightbox-control-button lightbox-close" aria-label="Close">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        <div class="lightbox-nav-controls" aria-label="Navigate posts">
+          <button id="lightbox-prev" class="lightbox-control-button lightbox-nav-button" aria-label="Previous post">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M19 12H5"></path>
+              <path d="m12 19-7-7 7-7"></path>
+            </svg>
+          </button>
+          <button id="lightbox-next" class="lightbox-control-button lightbox-nav-button" aria-label="Next post">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="lightbox-panel-copy">
+        <p class="lightbox-eyebrow">Design</p>
+        <h2 id="lightbox-title" class="lightbox-title">Bookmark Title</h2>
+        <div class="lightbox-author-row">
+          <img id="lightbox-avatar" class="lightbox-avatar" src="" alt="">
+          <a id="lightbox-link" class="lightbox-link" href="#" target="_blank" rel="noopener">@handle</a>
+        </div>
+        <p id="lightbox-description" class="lightbox-description"></p>
+      </div>
+      <dl class="lightbox-meta-list">
+        <div class="lightbox-meta-row">
+          <dt>Source</dt>
+          <dd id="lightbox-source">Web</dd>
+        </div>
+        <div class="lightbox-meta-row">
+          <dt>Category</dt>
+          <dd id="lightbox-category"></dd>
+        </div>
+        <div class="lightbox-meta-row">
+          <dt>Style</dt>
+          <dd id="lightbox-style"></dd>
+        </div>
+        <div class="lightbox-meta-row">
+          <dt>Color</dt>
+          <dd id="lightbox-color"></dd>
+        </div>
+        <div class="lightbox-meta-row">
+          <dt>Interaction</dt>
+          <dd id="lightbox-interaction"></dd>
+        </div>
+      </dl>
+      <div id="lightbox-visible-section" class="lightbox-visible-section">
+        <p class="lightbox-section-label">Visible</p>
+        <p id="lightbox-visible" class="lightbox-visible"></p>
+      </div>
+      <section id="manual-note-section" class="manual-note-section" aria-label="Manual review note">
+        <div class="manual-note-header">
+          <p class="manual-note-label">Manual note</p>
+          <button id="manual-note-edit" class="manual-note-edit" type="button" aria-label="Edit manual note">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 20h9"></path>
+              <path d="m16.5 3.5 4 4L8 20H4v-4L16.5 3.5Z"></path>
+            </svg>
+            <span>Edit</span>
+          </button>
+        </div>
+        <p id="manual-note-text" class="manual-note-text"></p>
+        <form id="manual-note-form" class="manual-note-form" hidden>
+          <textarea id="manual-note-input" rows="4" maxlength="2400" aria-label="Manual note" placeholder="Roughly describe what is visible or what the AI should correct later..."></textarea>
+          <div class="manual-note-actions">
+            <button id="manual-note-cancel" class="manual-note-button secondary" type="button">Cancel</button>
+            <button id="manual-note-save" class="manual-note-button primary" type="submit">Save</button>
+          </div>
+        </form>
+        <p id="manual-note-status" class="manual-note-status" aria-live="polite"></p>
+      </section>
+      <section id="board-curation-section" class="manual-note-section" aria-label="Board curation note" hidden>
+        <div class="manual-note-header">
+          <p class="manual-note-label">Board note</p>
+          <button id="board-curation-edit" class="manual-note-edit" type="button"><span>Edit</span></button>
+        </div>
+        <p id="board-curation-text" class="manual-note-text"></p>
+        <form id="board-curation-form" class="manual-note-form" aria-busy="false" hidden>
+          <textarea id="board-curation-input" rows="3" maxlength="1000" aria-label="Board curation note" aria-describedby="board-curation-status"></textarea>
+          <div class="manual-note-actions">
+            <button id="board-curation-cancel" class="manual-note-button secondary" type="button">Cancel</button>
+            <button id="board-curation-save" class="manual-note-button primary" type="submit">Save</button>
+          </div>
+        </form>
+        <p id="board-curation-status" class="manual-note-status" aria-live="polite"></p>
+        <div class="board-item-actions">
+          <button id="board-move-earlier" class="manual-note-button secondary" type="button">Move earlier</button>
+          <button id="board-move-later" class="manual-note-button secondary" type="button">Move later</button>
+          <button id="board-remove-item" class="manual-note-button secondary" type="button">Remove</button>
+        </div>
+      </section>
+      <div class="lightbox-sidebar-footer">
+        <span id="lightbox-date" class="lightbox-date"></span>
+      </div>
+      <div id="lightbox-tags" class="lightbox-tags"></div>
+      <div id="lightbox-stats" class="lightbox-stats">
+        <span class="lightbox-stat" id="stat-likes">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span id="stat-likes-count">0</span>
+        </span>
+        <span class="lightbox-stat" id="stat-retweets">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+          <span id="stat-retweets-count">0</span>
+        </span>
+        <span class="lightbox-stat" id="stat-bookmarks">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          <span id="stat-bookmarks-count">0</span>
+        </span>
+      </div>
+    </aside>
+  </div>
+  <script type="module" src="audio-feedback.js"></script>
+  <script src="node_modules/motion/dist/motion.js"></script>
+  <script src="url-contract.js"></script>
+  <script src="browser-loader.js"></script>
+  <script src="board-history.js"></script>
+  <script src="board-repair.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

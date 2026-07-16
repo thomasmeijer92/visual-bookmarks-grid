@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 1600" role="img" aria-label="Sample editorial layout">
+  <rect width="1300" height="1600" fill="#f2f2ee"/>
+  <text x="110" y="220" font-family="Georgia, serif" font-size="116" font-weight="700" fill="#111">FIELD</text>
+  <text x="110" y="340" font-family="Georgia, serif" font-size="116" font-weight="700" fill="#111">NOTES</text>
+  <rect x="110" y="430" width="500" height="760" fill="#111"/>
+  <rect x="690" y="430" width="500" height="300" fill="#ff7aa2"/>
+  <rect x="690" y="790" width="500" height="400" fill="#9ee7d7"/>
+  <rect x="110" y="1290" width="1080" height="8" fill="#111"/>
+  <rect x="110" y="1350" width="680" height="18" rx="9" fill="#111"/>
+  <rect x="110" y="1400" width="520" height="18" rx="9" fill="#111"/>
+</svg>

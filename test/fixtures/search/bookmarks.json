@@ -1,0 +1,47 @@
+{
+  "folders": [],
+  "bookmarks": [
+    {
+      "id": "fixture-pricing-001",
+      "text": "Pricing comparison for a focused software product.",
+      "url": "https://example.com/fixture/pricing",
+      "authorName": "Fixture Studio",
+      "authorHandle": "fixture-studio",
+      "bookmarkedAt": "2026-02-01T10:00:00.000Z",
+      "folders": ["Interface"],
+      "tags": ["saas", "pricing"],
+      "images": [
+        {
+          "id": "fixture-pricing-base-media",
+          "type": "photo",
+          "url": "assets/sample-interface.svg",
+          "width": 1400,
+          "height": 1000
+        },
+        {
+          "id": "fixture-pricing-secondary-media",
+          "type": "photo",
+          "url": "assets/sample-motion.svg",
+          "width": 1500,
+          "height": 1000
+        }
+      ]
+    },
+    {
+      "id": "fixture-notes-002",
+      "text": "Editorial letterform study.",
+      "url": "https://example.com/fixture/type-study",
+      "authorName": "Type Lab",
+      "folders": ["Editorial"],
+      "tags": ["typography"],
+      "images": [
+        {
+          "type": "photo",
+          "url": "assets/sample-editorial.svg",
+          "width": 1300,
+          "height": 1600
+        }
+      ]
+    }
+  ]
+}

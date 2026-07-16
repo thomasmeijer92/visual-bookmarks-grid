@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" role="img" aria-label="Sample packaging system">
+  <rect width="1200" height="1200" fill="#fbfbf7"/>
+  <rect x="170" y="170" width="360" height="700" rx="38" fill="#101010"/>
+  <rect x="590" y="270" width="440" height="520" rx="40" fill="#9ee7d7"/>
+  <text x="235" y="370" font-family="Arial, sans-serif" font-size="72" font-weight="700" fill="#fbfbf7">BLOOM</text>
+  <text x="235" y="462" font-family="Arial, sans-serif" font-size="34" fill="#ffc46b">daily blend</text>
+  <circle cx="810" cy="530" r="126" fill="#ff7aa2"/>
+  <circle cx="880" cy="600" r="92" fill="#ffc46b" opacity=".88"/>
+  <rect x="230" y="720" width="230" height="28" rx="14" fill="#fbfbf7"/>
+  <rect x="660" y="705" width="260" height="34" rx="17" fill="#101010"/>
+</svg>
