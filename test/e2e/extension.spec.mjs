@@ -78,6 +78,7 @@ test("loads the unpacked MV3 extension, saves loopback previews, and exercises t
       });
     }, { url: fixture.url, title: "Local clip fixture", favIconUrl: "" });
     await popup.goto(`${extensionOrigin}/popup.html`);
+    await expect(popup.locator("html")).toHaveAttribute("data-popup-ready", "true");
     await expect(popup.locator("#clip-form")).toBeVisible();
     await popup.locator(".server-details summary").click();
     await popup.locator("#server-url").fill(grid.baseURL);
@@ -117,15 +118,31 @@ test("loads the unpacked MV3 extension, saves loopback previews, and exercises t
     expect(imageRecords[0].media.sourceUrl).toBe(fixture.imageUrl);
     expect(grid.paths.clips.startsWith(grid.stateDir)).toBe(true);
 
-    await popup.evaluate(async () => chrome.storage.local.set({
+    await popup.evaluate(async ({ failureResult }) => chrome.storage.local.set({
       settings: { serverUrl: "https://example.invalid" },
-      lastSave: { ok: true, source: "popup", clip: { title: "Unsafe preview", media: { url: "/preview.png" } } },
-    }));
+      lastSave: failureResult,
+    }), { failureResult: storage.values.lastSave });
     const resultPopup = await context.newPage();
     failurePages.set("result", resultPopup);
     const assertResultErrors = collectBrowserErrors(resultPopup, "extension-result-popup");
     const assertResultRequests = auditLoopbackRequests(resultPopup, "extension-result-popup");
     await resultPopup.goto(`${extensionOrigin}/popup.html?result=1`);
+    await expect(resultPopup.locator("html")).toHaveAttribute("data-popup-ready", "true");
+    await expect(resultPopup.locator("#success-panel")).toHaveAttribute("data-state", "error");
+    await expect(resultPopup.locator("#view-title")).toHaveText("Save failed");
+    await expect(resultPopup.locator("#result-heading")).toHaveText("Save failed");
+    await expect(resultPopup.locator("#result-icon-path")).toHaveAttribute("d", "M18 6 6 18M6 6l12 12");
+    await expect(resultPopup.locator("#success-title")).toHaveText("Could not save item");
+    await expect(resultPopup.locator("#success-message")).toHaveText("Could not read the image URL from this page.");
+
+    await resultPopup.evaluate(async () => chrome.storage.local.set({
+      settings: { serverUrl: "https://example.invalid" },
+      lastSave: { ok: true, source: "popup", clip: { title: "Unsafe preview", media: { url: "/preview.png" } } },
+    }));
+    await resultPopup.reload();
+    await expect(resultPopup.locator("html")).toHaveAttribute("data-popup-ready", "true");
+    await expect(resultPopup.locator("#success-panel")).toHaveAttribute("data-state", "success");
+    await expect(resultPopup.locator("#result-heading")).toHaveText("Saved to grid");
     await expect(resultPopup.locator("#success-title")).toHaveText("Unsafe preview");
     expect(await resultPopup.locator("#success-image").evaluate((image) => image.src)).toBe(`${extensionOrigin}/icon.svg`);
 

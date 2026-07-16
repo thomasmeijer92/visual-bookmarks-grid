@@ -122,7 +122,7 @@ npm run --silent review:reopen -- --id review-id --reason "Needs another pass"
 npm run --silent review:reconcile -- --json
 ```
 
-`metadata-review.json` stores queue state, event history, and accepted patches. Writes use the ignored `metadata-review.lock`, and neither file is served by the app.
+`metadata-review.json` stores queue state, event history, and accepted patches. Writes use the ignored `metadata-review.lock` directory. Neither artifact is served by the app.
 
 Each successful index build reconciles notes, applies active accepted patches after optional enrichment, records `manual-override` provenance, and rebuilds searchable text.
 
