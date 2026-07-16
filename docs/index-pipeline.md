@@ -73,7 +73,29 @@ export async function enrich(record, { signal }) {
 }
 ```
 
-The payload contains only the opaque catalog `id`, title, description, categories, styles, colors, interactions, visible values, tags, and bounded primary-media type/dimensions. A primary-media URL is included only when it is query- and fragment-free HTTP(S), has no user info, and is hosted by a domain name that passes the syntactic local/internal and IANA special-use policy. Every IPv4- or IPv6-literal media location is omitted, whether public, private, reserved, or special-purpose. The check is syntactic and does not perform DNS resolution. A hostname may have one terminal DNS root dot; repeated terminal dots or any other empty DNS label are rejected before IP and suffix classification. Signed or credential-bearing query URLs; IP literals; local/internal hostnames; exact names and subdomains of IANA/RFC special-use names `alt`, `localhost`, `invalid`, `test`, `example`, `example.com`, `example.net`, `example.org`, `onion`, and `local`; ARPA special-use or reverse zones `6tisch.arpa`, `eap.arpa`, `eap-noob.arpa`, `home.arpa`, `in-addr.arpa`, `ip6.arpa`, `ipv4only.arpa`, `resolver.arpa`, and `service.arpa`; legacy local deployment suffixes `localdomain`, `internal`, `home`, and `lan`; local media paths; and every other URL form are replaced with an empty string. Name matching is exact or on a dot-label suffix, so public names that merely contain one of these strings are not blocked. Notes, collections, `searchText`, provenance, resolver aliases, source and creator fields, credentials, local paths, and raw source responses are excluded.
+The enrichment payload contains only:
+
+- the opaque catalog `id`
+- title and description
+- categories, styles, colors, interactions, visible values, and tags
+- bounded primary-media type and dimensions
+
+A primary-media URL is included only when it uses HTTP(S), has no query, fragment, or user info, and its domain passes the syntactic local/internal and IANA special-use policy. The check does not perform DNS resolution.
+
+The URL is omitted for:
+
+- every IPv4 or IPv6 literal, including public, private, reserved, and special-purpose addresses
+- hostnames with repeated terminal dots or any other empty DNS label
+- signed or credential-bearing query URLs
+- local or internal hostnames
+- exact names and subdomains of `alt`, `localhost`, `invalid`, `test`, `example`, `example.com`, `example.net`, `example.org`, `onion`, and `local`
+- ARPA zones `6tisch.arpa`, `eap.arpa`, `eap-noob.arpa`, `home.arpa`, `in-addr.arpa`, `ip6.arpa`, `ipv4only.arpa`, `resolver.arpa`, and `service.arpa`
+- legacy local suffixes `localdomain`, `internal`, `home`, and `lan`
+- local media paths and every non-HTTP(S) URL form
+
+A hostname may have one terminal DNS root dot. Name matching is exact or uses a dot-label suffix, so public names that merely contain a blocked string still pass.
+
+Notes, collections, `searchText`, provenance, resolver aliases, source and creator fields, credentials, local paths, and raw source responses never enter the payload.
 
 Those documented payload fields may leave the machine if the configured module sends them to a network service. The module itself is trusted local code and can access capabilities available to the Node process, so review it before opting in.
 

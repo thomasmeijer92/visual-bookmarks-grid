@@ -79,7 +79,7 @@ const renderSuccess = (saveResult) => {
   if (!saveResult?.ok) {
     elements.successImage.src = "icon.svg";
     elements.successTitle.textContent = "Could not save item";
-    elements.successMeta.textContent = "Check the local server";
+    elements.successMeta.textContent = "Start the local server and confirm the Server URL";
     elements.successMessage.textContent = saveResult?.error || "The local server did not accept the clip.";
     return;
   }
@@ -89,8 +89,8 @@ const renderSuccess = (saveResult) => {
   elements.successTitle.textContent = clip.title || "Saved item";
   elements.successMeta.textContent = [clip.sourcePlatform, clip.siteName || clip.host].filter(Boolean).join(" - ") || "Visual Grid";
   elements.successMessage.textContent = clip.captureMode === "image"
-    ? "The selected image is saved. Open grids refresh automatically."
-    : "The page is saved. Open grids refresh automatically.";
+    ? "The selected image is saved. Any open grid refreshes automatically."
+    : "The page is saved. Any open grid refreshes automatically.";
 };
 
 const renderForm = () => {

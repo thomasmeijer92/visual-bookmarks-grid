@@ -393,7 +393,7 @@ const clipToCard = (clip) => {
     notVisible: [],
     objects: [],
     scene: `Saved web inspiration from ${clip.siteName || clip.host || source}`,
-    visibleText: [clip.title, clip.description, clip.note].filter(Boolean).join(" — "),
+    visibleText: [clip.title, clip.description, clip.note].filter(Boolean).join(" | "),
     confidence: "captured",
     scanStatus: "web_clipped",
     visionError: null,
@@ -746,7 +746,7 @@ const openManualNoteEditor = () => {
   manualNoteText.hidden = true;
   manualNoteForm.hidden = false;
   if (manualNoteEdit) manualNoteEdit.hidden = true;
-  setManualNoteStatus("Rough observation for later agent cleanup.");
+  setManualNoteStatus("Add a rough note for the local review queue.");
   requestAnimationFrame(() => manualNoteInput.focus());
 };
 
@@ -801,7 +801,7 @@ const saveManualNote = async () => {
     }
 
     renderManualNote(bookmark);
-    setManualNoteStatus(noteText ? "Saved for agent review." : "Note removed.");
+    setManualNoteStatus(noteText ? "Saved to the local review queue." : "Note removed.");
     emitSound("folder-select");
   } catch (error) {
     setManualNoteStatus(error.message || "Could not save note.", "error");
@@ -1004,7 +1004,7 @@ const renderVisibleItems = () => {
   const vh = window.innerHeight;
   const buf = CONFIG.BUFFER;
 
-  // The pool element the lightbox is using — don't touch it
+  // The pool element the lightbox is using, so don't touch it.
   const lightboxEl = state.lightboxItem?.element || null;
 
   // Use current eased position for rendering transforms
@@ -1892,7 +1892,7 @@ const initSearch = () => {
     }
   });
 
-  // Escape to blur and clear — but lightbox close takes priority
+  // Escape blurs and clears the search, but closing the lightbox takes priority.
   input.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       if (state.lightboxOpen) {
@@ -2224,7 +2224,7 @@ const openBoardModal = async ({ edit = false } = {}) => {
   if (boardSelectionHeading) boardSelectionHeading.hidden = false;
   boardSelectionList.hidden = false;
   setBoardDialogBusy("resolve");
-  setBoardDialogStatus("Resolving filtered references...");
+  setBoardDialogStatus("Loading filtered references...");
   requestAnimationFrame(() => boardNameInput.focus());
   const filtered = filterBookmarks().slice(0, BOARD_DIALOG_MAX_ITEMS);
   const prepared = filtered.map((bookmark, index) => ({

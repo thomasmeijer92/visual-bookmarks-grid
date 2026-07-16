@@ -57,7 +57,7 @@ test("captures startup errors before app navigation", async () => {
 });
 
 test("loads only committed sample content and settles rapid filters on Branding", async ({ page }) => {
-  expect(await visibleLabels(page)).toContain("Open Dark product interface with compact cards, clear hierarchy, and a calm operational layout.");
+  expect(await visibleLabels(page)).toContain("Open Three metric cards sit below a wide header control, with one primary action at the lower right.");
   await assertVisibleMedia(visibleGridItems(page).first());
   await expect(page.locator("#search-input")).toBeVisible();
   await page.locator("#filter-chips").evaluate(() => {
@@ -163,7 +163,7 @@ test("keyboard lightbox navigates metadata and restores focus and inert state", 
   await expect(page.locator("#lightbox-link")).toHaveAttribute("href", initial.href || "");
   await page.getByRole("button", { name: "Close", exact: true }).focus();
   await page.keyboard.press("Tab");
-  await expect(page.getByRole("button", { name: "Previous post" })).toBeFocused();
+  await expect(page.getByRole("button", { name: "Previous bookmark" })).toBeFocused();
   await page.keyboard.press("Escape");
   await expect(page.locator("#lightbox-overlay")).toHaveAttribute("inert", "");
   await expect(first).toBeFocused();
@@ -247,11 +247,11 @@ test("desktop and compact layout surfaces fit without collisions", async ({ page
     await visibleGridItems(page).first().press("Enter");
     await expect(page.locator("#lightbox-overlay")).toBeVisible();
     await expect(page.getByRole("button", { name: "Close", exact: true })).toBeFocused();
-    for (const locator of [page.locator("#lightbox-info"), page.getByRole("button", { name: "Close", exact: true }), page.getByRole("button", { name: "Previous post" }), page.getByRole("button", { name: "Next post" })]) {
+    for (const locator of [page.locator("#lightbox-info"), page.getByRole("button", { name: "Close", exact: true }), page.getByRole("button", { name: "Previous bookmark" }), page.getByRole("button", { name: "Next bookmark" })]) {
       await assertInsideViewport(locator, viewport);
     }
-    await assertNotIntersecting(page.getByRole("button", { name: "Close", exact: true }), page.getByRole("button", { name: "Previous post" }));
-    await assertNotIntersecting(page.getByRole("button", { name: "Previous post" }), page.getByRole("button", { name: "Next post" }));
+    await assertNotIntersecting(page.getByRole("button", { name: "Close", exact: true }), page.getByRole("button", { name: "Previous bookmark" }));
+    await assertNotIntersecting(page.getByRole("button", { name: "Previous bookmark" }), page.getByRole("button", { name: "Next bookmark" }));
     await page.keyboard.press("Escape");
     await expect(page.locator("#lightbox-overlay")).toHaveAttribute("inert", "");
     await page.getByRole("button", { name: "Close board" }).click();

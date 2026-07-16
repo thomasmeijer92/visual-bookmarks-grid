@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000" role="img" aria-label="Sample dark web metrics interface">
+  <rect width="1400" height="1000" fill="#f5f4ef"/>
+  <rect x="120" y="100" width="1160" height="800" rx="34" fill="#101010"/>
+  <rect x="180" y="160" width="1040" height="70" rx="20" fill="#1d1d1d"/>
+  <circle cx="220" cy="195" r="12" fill="#ff7aa2"/>
+  <circle cx="256" cy="195" r="12" fill="#ffc46b"/>
+  <circle cx="292" cy="195" r="12" fill="#9ee7d7"/>
+  <rect x="180" y="290" width="500" height="96" rx="24" fill="#f5f4ef"/>
+  <rect x="180" y="430" width="300" height="260" rx="28" fill="#202020" stroke="#373737" stroke-width="3"/>
+  <rect x="510" y="430" width="300" height="260" rx="28" fill="#202020" stroke="#373737" stroke-width="3"/>
+  <rect x="840" y="430" width="380" height="390" rx="28" fill="#9ee7d7"/>
+  <circle cx="330" cy="535" r="44" fill="#ff7aa2"/>
+  <circle cx="660" cy="535" r="44" fill="#ffc46b"/>
+  <rect x="180" y="740" width="630" height="80" rx="24" fill="#292929"/>
+  <rect x="1000" y="730" width="160" height="52" rx="26" fill="#101010"/>
+</svg>

@@ -12,7 +12,7 @@ export const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)
 const tinyPng = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADElEQVR42mNk+M/wHwAF/gL+9d6U4QAAAABJRU5ErkJggg==", "base64");
 export const SAMPLE_BOOKMARK_IDS = [
   "sample-interface-001", "sample-website-002", "sample-branding-003", "sample-workspace-004",
-  "sample-packaging-005", "sample-motion-006", "sample-editorial-007", "sample-3d-008",
+  "sample-packaging-005", "sample-motion-006", "sample-editorial-007", "sample-illustration-008",
 ];
 export const SAMPLE_CARD_IDS = SAMPLE_BOOKMARK_IDS.map((id) => `${id}-01`);
 
