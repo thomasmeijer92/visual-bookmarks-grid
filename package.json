@@ -58,6 +58,6 @@
     "motion": "^12.38.0"
   },
   "devDependencies": {
-    "@playwright/test": "^1.61.1"
+    "@playwright/test": "^1.62.0"
   }
 }
