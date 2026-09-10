@@ -54,7 +54,7 @@
     "node": ">=20"
   },
   "dependencies": {
-    "@web-kits/audio": "^0.1.0",
+    "@web-kits/audio": "^0.2.0",
     "motion": "^13.0.0"
   },
   "devDependencies": {
